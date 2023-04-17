@@ -57,6 +57,7 @@ app.use("/saved", savedRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
+mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,

@@ -32,7 +32,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
-//test
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 /* FILE STORAGE */
@@ -55,6 +54,7 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/saved", savedRoutes);
+
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose
@@ -65,7 +65,6 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
-    /* ADD DATA ONE TIME */
     // User.insertMany(users);
     // Post.insertMany(posts);
   })
